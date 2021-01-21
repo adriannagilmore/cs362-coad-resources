@@ -17,26 +17,26 @@ This is a Rails application that uses SQLite in development and PostgreSQL in pr
 Install the dependencies:
 
 ```
-gem install bundler
-bundle install
+gem install bundler    [done]
+bundle install         [done]
 ```
 
 Next, set up the database:
 
 ```
-rails db:setup
+rails db:setup         [done]
 ```
 
 If you want, you can create some seed data in the database:
 
 ```
-rails db:seed
+rails db:seed          [done]
 ```
 
 Start the app:
 
 ```
-rails server
+rails server           [done]
 ```
 
 ## Testing
@@ -44,7 +44,7 @@ rails server
 This project uses RSpec for testing.
 
 ```
-rspec
+rspec                  [done]
 ```
 
 You can also run a specific directory of tests or file by supplying its name, like so:
