@@ -30,16 +30,6 @@ RSpec.describe User, type: :model do
     expect(user).to respond_to(:remember_created_at)
   end
 
-  it 'has a created_at' do
-    user = User.new
-    expect(user).to respond_to(:created_at)
-  end
-
-  it 'has a updated_at' do
-    user = User.new
-    expect(user).to respond_to(:updated_at)
-  end
-
   it 'has a confirmation_token' do
     user = User.new
     expect(user).to respond_to(:confirmation_token)
@@ -65,8 +55,4 @@ RSpec.describe User, type: :model do
     expect(user).to respond_to(:role)
   end
 
-  it 'has an organization_id' do
-    user = User.new
-    expect(user).to respond_to(:organization_id)
-  end
 end

@@ -35,16 +35,6 @@ RSpec.describe Organization, type: :model do
     expect(organization).to respond_to(:rejection_reason)
   end
 
-  it 'has a created_at' do
-    organization = Organization.new
-    expect(organization).to respond_to(:created_at)
-  end
-
-  it 'has an updated_at' do
-    organization = Organization.new
-    expect(organization).to respond_to(:updated_at)
-  end
-
   it 'has a liability_insurance' do
     organization = Organization.new
     expect(organization).to respond_to(:liability_insurance)
