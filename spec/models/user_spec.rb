@@ -18,10 +18,12 @@ RSpec.describe User, type: :model do
 
   it 'expects set_default_role to stay the same' do
   # fill me in
+    # If role is not null then do nothing
   end
 
   it 'expects set_default_role to return organization' do
   # fill me in
+    #If role is null fill it in with organization
   end
 
 end
