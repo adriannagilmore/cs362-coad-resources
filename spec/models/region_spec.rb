@@ -11,12 +11,14 @@ RSpec.describe Region, type: :model do
     expect(region).to respond_to(:name)
   end
 
-# **I do not remember why we did this, something to think about doing I think**
-#   it 'is not valid without a name' do
-#     region = Region.new(name: "Fake Region")
-#     expect(region).to be_valid
-#     region.name = nil
-#     exepect(region).to_not be_valid
-#   end
+  it 'is expected to have a region of unspecified' do
+    expect(Region.unspecified.name).to eq('Unspecified')
+  end
+
+  it 'expects to_s to return a name' do
+    name = 'myName'
+    region = Region.new(name: name)
+    expect(region.to_s).to eq(name)
+  end
 
 end
