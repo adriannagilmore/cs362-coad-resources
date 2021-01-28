@@ -18,6 +18,10 @@ class User < ApplicationRecord
   validates_length_of :password, minimum: 7, maximum: 255, on: :create
 
   def set_default_role
+    # This code is the same as the uncommented portion
+    # if self.role == nil
+    #   self.role = :organization
+    # end
     self.role ||= :organization
   end
 
