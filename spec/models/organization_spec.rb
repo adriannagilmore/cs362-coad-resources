@@ -64,4 +64,31 @@ RSpec.describe Organization, type: :model do
     organization = Organization.new
     expect(organization).to respond_to(:transportation)
   end
+
+  it 'expects set_default_status to not change status' do
+    #fill me in
+  end
+
+  it 'expects set_default_status to return submitted' do
+    #fill me in
+      #if status is nil change to submitted
+  end
+
+  it 'expects approve to return approved' do
+    status = :approved
+    organization = Organization.new(status: status)
+    expect(organization.approve).to eq(status)
+  end
+
+  it 'expects reject to return rejected' do
+    status = :rejected
+    organization = Organization.new(status: status)
+    expect(organization.reject).to eq(status)
+  end
+
+  it 'expects to_s to return a name' do
+    name = 'name'
+    organization = Organization.new(name: name)
+    expect(organization.to_s).to eq(name)
+  end
 end
