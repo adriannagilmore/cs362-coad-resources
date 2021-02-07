@@ -43,7 +43,7 @@ RSpec.describe Ticket, type: :model do
       it 'returns a ticket for a region given that region\'s id' do
         ticket = create(:ticket)
         region = ticket.region
-        expect(Ticket.region(region.ed)).to include(ticket)
+        expect(Ticket.region(region.id)).to include(ticket)
       end
       it 'does not return a ticket for a different region id' do
         ticket = create(:ticket)
@@ -53,7 +53,7 @@ RSpec.describe Ticket, type: :model do
         expect(Ticket.region(region.id)).to_not include(other_region_ticket)
       end
     end
-    
+
   end
 
 end

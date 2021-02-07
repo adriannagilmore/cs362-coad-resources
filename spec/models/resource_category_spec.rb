@@ -48,7 +48,7 @@ RSpec.describe ResourceCategory, type: :model do
   describe 'ResourceCategory#unspecified' do
     it 'returns a ResourceCategory with the name Unspecified' do
       result = ResourceCategory.unspecified
-      expect(result.name).to be('Unspecified')
+      expect(result.name).to eq('Unspecified')
     end
   end
 
@@ -58,7 +58,7 @@ RSpec.describe ResourceCategory, type: :model do
       inactive_resource_category = ResourceCategory.create(name: 'Inactive Category', active: false)
       results = ResourceCategory.active
       expect(results).to include(active_resource_category)
-      expect(results).to_not inlcude(inactive_resource_category)
+      expect(results).to_not include(inactive_resource_category)
     end
   end
 
