@@ -53,6 +53,7 @@ RSpec.describe Ticket, type: :model do
         expect(Ticket.region(region.id)).to_not include(other_region_ticket)
       end
     end
+    
   end
 
 end
