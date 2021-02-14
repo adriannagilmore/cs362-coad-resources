@@ -66,12 +66,15 @@ RSpec.describe Organization, type: :model do
   end
 
   it 'expects set_default_status to not change status' do
-    #fill me in
+    status = 'submitted'
+    organization = Organization.new(status: status)
+    expect(organization.set_default_status).to eq(status)
   end
 
   it 'expects set_default_status to return submitted' do
-    #fill me in
-      #if status is nil change to submitted
+    status = nil
+    organization = Organization.new(status: status)
+    expect(organization.set_default_status).to eq('submitted')
   end
 
   it 'expects approve to return approved' do
