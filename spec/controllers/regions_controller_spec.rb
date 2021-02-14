@@ -16,16 +16,16 @@ RSpec.describe RegionsController, type: :controller do
       expect(response).to redirect_to(new_user_session_url)
       get :edit, params: {id: 'fake'}
       expect(response).to redirect_to(new_user_session_url)
+      get :update, params: {id: 'fake'}
+      expect(response).to redirect_to(new_user_session_url)
+      get :destroy, params: {id: 'fake'}
+      expect(response).to redirect_to(new_user_session_url)
     end
-
-    #edit needs params
-    #update needs params
-    #destroy needs params
-    #rails routes <-use this to look up the urls
 
   end
 
   context 'organization users' do
+    
     before do
       organization_user = build(:user, :organization)
       allow(request.env['warden']).to receive(:authenticate!).and_return(organization_user)
@@ -40,6 +40,12 @@ RSpec.describe RegionsController, type: :controller do
       get :new
       expect(response).to redirect_to(dashboard_url)
       post :create
+      expect(response).to redirect_to(dashboard_url)
+      get :edit, params: {id: 'fake'}
+      expect(response).to redirect_to(dashboard_url)
+      get :update, params: {id: 'fake'}
+      expect(response).to redirect_to(dashboard_url)
+      get :destroy, params: {id: 'fake'}
       expect(response).to redirect_to(dashboard_url)
     end
   end
