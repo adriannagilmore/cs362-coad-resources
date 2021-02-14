@@ -94,4 +94,31 @@ RSpec.describe Organization, type: :model do
     organization = Organization.new(name: name)
     expect(organization.to_s).to eq(name)
   end
+
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:phone) }
+    it { is_expected.to validate_presence_of(:status) }
+    it { is_expected.to validate_presence_of(:primary_name) }
+    it { is_expected.to validate_presence_of(:secondary_name) }
+    it { is_expected.to validate_presence_of(:secondary_phone) }
+
+    it { is_expected.to validate_length_of(:email) 
+          .is_at_least(1)
+          .is_at_most(255)
+          .on(:create) }
+    it { is_expected.to validate_length_of(:name) 
+          .is_at_least(1)
+          .is_at_most(255)
+          .on(:create) }
+    it { is_expected.to validate_length_of(:description) 
+          .is_at_most(1020)
+          .on(:create) }
+    
+    it { is_expected.to validate_uniqueness_of(:email)
+          .case_insensitive }
+    it { is_expected.to validate_uniqueness_of(:name)
+          .case_insensitive }
+  end
 end
