@@ -17,13 +17,32 @@ RSpec.describe User, type: :model do
   end
 
   it 'expects set_default_role to stay the same' do
-  # fill me in
-    # If role is not null then do nothing
+    role = "organization"
+    user = User.new(role: role)
+    expect(user.set_default_role).to eq(role)
   end
 
   it 'expects set_default_role to return organization' do
-  # fill me in
-    #If role is null fill it in with organization
+    role = nil
+    user = User.new(role: role)
+    expect(user.set_default_role).to eq('organization')
+  end
+
+  describe 'validators' do
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_length_of(:email) 
+          .is_at_least(1)
+          .is_at_most(255)
+          .on(:create) }
+    it { is_expected.to validate_uniqueness_of(:email)
+          .case_insensitive }
+
+    it { is_expected.to validate_presence_of(:password)
+          .on(:create) }
+    it { is_expected.to validate_length_of(:password) 
+          .is_at_least(7)
+          .is_at_most(255)
+          .on(:create) }
   end
 
 end
