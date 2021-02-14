@@ -26,6 +26,21 @@ RSpec.describe Ticket, type: :model do
     expect(ticket).to respond_to(:closed_at)
   end
 
+  describe 'validators' do
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:phone) }
+    it { is_expected.to validate_presence_of(:region_id) }
+    it { is_expected.to validate_presence_of(:resource_category_id) }
+
+    it { is_expected.to validate_length_of(:name) 
+          .is_at_least(1)
+          .is_at_most(255)
+          .on(:create) }
+    it { is_expected.to validate_length_of(:description) 
+          .is_at_most(1020)
+          .on(:create) }
+  end
+
   describe 'scopes' do
 
     describe 'closed' do

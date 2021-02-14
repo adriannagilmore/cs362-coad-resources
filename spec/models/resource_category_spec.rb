@@ -25,6 +25,8 @@ RSpec.describe ResourceCategory, type: :model do
           .is_at_least(1)
           .is_at_most(255)
           .on(:create) }
+    it { is_expected.to validate_uniqueness_of(:name)
+          .case_insensitive }
   end
 
   it 'has a string representation that is its name' do
