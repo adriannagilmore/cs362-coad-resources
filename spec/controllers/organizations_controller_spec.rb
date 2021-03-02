@@ -25,33 +25,21 @@ RSpec.describe OrganizationsController, type: :controller do
     
   end
 
-#   context 'organization users' do
+  context 'organization users' do
     
-#     before do
-#       organization_user = build(:user, :organization)
-#       allow(request.env['warden']).to receive(:authenticate!).and_return(organization_user)
-#       allow(controller).to receive(:current_user).and_return(organization_user)
-#     end
+    before do
+      organization_user = build(:user, :organization)
+      allow(request.env['warden']).to receive(:authenticate!).and_return(organization_user)
+      allow(controller).to receive(:current_user).and_return(organization_user)
+    end
 
-#     it 'redirects to the dashboard' do
-#       get :index
-#       expect(response).to redirect_to(dashboard_url)
-#       get :show, params: {id: 'fake'}
-#       expect(response).to redirect_to(dashboard_url)
-#       get :new
-#       expect(response).to redirect_to(dashboard_url)
-#       post :create
-#       expect(response).to redirect_to(dashboard_url)
-#       get :edit, params: {id: 'fake'}
-#       expect(response).to redirect_to(dashboard_url)
-#       get :update, params: {id: 'fake'}
-#       expect(response).to redirect_to(dashboard_url)
-#       post :approve, params: {id: 'fake'}
-#       expect(response).to redirect_to(dashboard_url)
-#       post :reject, params: {id: 'fake'}
-#       expect(response).to redirect_to(dashboard_url)
-#     end
+    it 'redirects to the dashboard' do
+      post :approve, params: {id: 'fake'}
+      expect(response).to redirect_to(dashboard_url)
+      post :reject, params: {id: 'fake'}
+      expect(response).to redirect_to(dashboard_url)
+    end
 
-#   end
+  end
 
 end
