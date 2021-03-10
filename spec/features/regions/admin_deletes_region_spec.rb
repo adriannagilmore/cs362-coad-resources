@@ -10,6 +10,6 @@ RSpec.describe 'Deleting a Region', type: :feature do
     click_on 'Regions'
     click_on region.name
     click_on 'Delete'
-   # expect(page.body).to have_text()
+    expect(page.body).to have_text("Region #{region.name} was deleted")
     end
 end
