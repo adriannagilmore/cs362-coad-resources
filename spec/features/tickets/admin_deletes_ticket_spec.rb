@@ -10,7 +10,6 @@ RSpec.describe 'Deleting a Ticket', type: :feature do
     click_on 'Dashboard'
     click_on ticket.name
     click_on 'Delete'
-    #was not sure if I should actually try to delete a ticket in the app to see what happens
-    #expect(page.body).to have_text()
+    expect(page.body).to have_text("#{ticket} was deleted")
     end
 end
